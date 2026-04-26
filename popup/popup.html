@@ -5,61 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Scraper - Download Manager</title>
     <link rel="stylesheet" href="popup.css">
+    <style>
+        html { width: 500px; height: 700px; }
+    </style>
 </head>
-<body>
-    <div id="container">
+<body style="width: 500px; height: 700px;">
+    <div id="container" style="width: 100%; height: 100%;">
         <!-- Header -->
-        <header>
+        <header class="header">
             <h1>📥 Media Scraper</h1>
-            <button id="settings-btn" class="header-btn" title="Settings">⚙️</button>
+            <div class="header-controls">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="multiple-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="toggle-label">Multiple Mode: OFF</span>
+            </div>
         </header>
 
-        <!-- Main Content Tabs -->
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="downloads">Downloads</button>
-            <button class="tab-btn" data-tab="history">History</button>
-            <button class="tab-btn" data-tab="settings">Settings</button>
-        </div>
-
-        <!-- Downloads Tab -->
-        <section id="downloads-tab" class="tab-content active">
-            <div class="section">
-                <h2>Active Downloads</h2>
-                <div id="active-downloads" class="download-list">
-                    <p class="empty-message">No active downloads</p>
-                </div>
+        <!-- Queue Display Area -->
+        <section class="queue-section">
+            <h2>Selected Items (<span id="queue-count">0</span>)</h2>
+            <div id="queue-list" class="queue-items">
+                <p class="empty-message">No items selected. Click the button on images/videos to add them.</p>
             </div>
-            <div class="section">
-                <h2>Queued Downloads</h2>
-                <div id="queued-downloads" class="download-list">
-                    <p class="empty-message">No queued downloads</p>
-                </div>
-            </div>
+            
+            <!-- Download Button -->
+            <button id="download-btn" class="btn btn-primary btn-download" disabled>
+                Download All
+            </button>
         </section>
 
-        <!-- History Tab -->
-        <section id="history-tab" class="tab-content">
-            <div class="section">
-                <h2>Download History</h2>
-                <div id="history-list" class="download-list">
-                    <p class="empty-message">No download history</p>
-                </div>
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stat-item">
+                <span class="stat-label">Total Selected:</span>
+                <span class="stat-value" id="stat-selected">0</span>
             </div>
-            <button id="clear-history-btn" class="btn btn-danger">Clear History</button>
-        </section>
-
-        <!-- Settings Tab -->
-        <section id="settings-tab" class="tab-content">
-            <div class="section">
-                <h2>Settings</h2>
-                <label>
-                    <input type="checkbox" id="auto-organize" checked>
-                    Auto-organize downloads by type
-                </label>
-                <label>
-                    <input type="checkbox" id="show-notifications" checked>
-                    Show download notifications
-                </label>
+            <div class="stat-item">
+                <span class="stat-label">Downloaded:</span>
+                <span class="stat-value" id="stat-downloaded">0</span>
             </div>
         </section>
     </div>
