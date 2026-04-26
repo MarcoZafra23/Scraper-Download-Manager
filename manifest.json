@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Image & Video Scraper - Download Manager",
+  "version": "0.1.0",
+  "description": "Automatically detect and download images and videos from web pages with a single click.",
+  "permissions": [
+    "downloads",
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Media Scraper & Download Manager",
+    "default_icons": {
+      "16": "icons/icon-16.svg",
+      "48": "icons/icon-48.svg",
+      "128": "icons/icon-128.svg"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.svg",
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/detector.js", "content/content.js"],
+      "css": ["content/styles.css"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ]
+}

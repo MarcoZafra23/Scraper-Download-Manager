@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Background -->
+  <rect width="128" height="128" fill="#667eea" rx="16"/>
+  
+  <!-- Download arrow -->
+  <path d="M64 32v48" stroke="white" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M44 64l20 20 20-20" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Folder/container -->
+  <path d="M28 88h72v20H28z" fill="white" opacity="0.8" rx="4"/>
+  
+  <!-- Additional elements for visual interest -->
+  <circle cx="50" cy="65" r="8" fill="white" opacity="0.3"/>
+  <circle cx="78" cy="50" r="6" fill="white" opacity="0.3"/>
+</svg>
